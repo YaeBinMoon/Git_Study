@@ -68,3 +68,22 @@ int partition(int* data, int left, int right)
 
 	return high;
 }
+
+void SelectionSort(int* data, int len)
+{
+	int i, j, temp, min, min_idx;
+	for(i=0;i<len-1;i++)
+	{
+		min=data[i];
+		min_idx=i;
+		for(j=i+1;j<len;j++)
+		{
+			if(min>data[j])
+			{
+				min=data[j];
+				min_idx=j;
+			}
+		}
+		if(min<data[i])SWAP(data[i],data[min_idx],temp);
+	}
+}

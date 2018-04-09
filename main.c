@@ -42,7 +42,7 @@ int main(void)
 	int i;
 	int len = sizeof(Dataset) / sizeof(int);
 
-	SelectionSort(Dataset, len);
+	MergeSort(Dataset, 0, len - 1);
 	printf("> Sort\n");
 	for (i = 0; i < len; i++)
 	{

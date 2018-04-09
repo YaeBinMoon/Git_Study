@@ -87,3 +87,41 @@ void SelectionSort(int* data, int len)
 		if(min<data[i])SWAP(data[i],data[min_idx],temp);
 	}
 }
+
+void MergeSort(int* data, int left, int right)
+{
+	if(left<right)
+	{
+		int mid = (left+right)/2;
+		MergeSort(data, left, mid);
+		MergeSort(data, mid + 1, right);
+		Merge(data, left, mid, right);
+	}
+}
+
+void Merge(int* data, int left, int mid, int right)
+{
+	int start1, start2, i;
+	start1 = left;
+	start2 = mid + 1;
+	int* sorted = (int*)malloc((right - left + 1)*sizeof(int));
+	int index = 0;
+	while(start1<=mid && start2<=right)
+	{
+		if(data[start1]<=data[start2]) sorted[index++] = data[start1++];
+		else  sorted[index++] = data[start2++];
+	}
+	if(start1<=mid)
+	{
+		for(;start1<=mid;start1++, index++) sorted[index] = data[start1];
+	}
+	if(start2<=right)
+	{
+		for(;start2<=right;start2++, index++) sorted[index] = data[start2];
+	}
+	for(i=left;i<=right;i++)
+	{
+		data[i] = sorted[i - left];
+	}
+	free(sorted);
+}

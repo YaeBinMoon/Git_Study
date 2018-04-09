@@ -12,5 +12,7 @@ void InsertionSort(int *data, int len);
 int partition(int* data, int left, int right);
 void QuickSort(int* data, int left, int right);
 void SelectionSort(int* data, int len);
+void MergeSort(int* data, int left, int right);
+void Merge(int* data, int left, int mid, int right);
 
 #endif
